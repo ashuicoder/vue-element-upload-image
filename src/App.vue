@@ -1,28 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div style="margin-left: 50px; margin-top: 50px">
+    <h1>单张图片</h1>
+    <ele-upload-image
+      :fileSize="0.1"
+      :isShowTip="false"
+      :lazy="true"
+      :responseFn="handleResponse"
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      title="单张图片"
+      v-model="image1"
+    ></ele-upload-image>
+    <h1>多张图片</h1>
+    <ele-upload-image
+      :fileSize="5"
+      :responseFn="handleResponse"
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76/"
+      multiple
+      v-model="images"
+    ></ele-upload-image>
+    <h1>拖拽</h1>
+    <ele-upload-image
+      :responseFn="handleResponse"
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76/"
+      drag
+      v-model="image2"
+    ></ele-upload-image>
+    <h1>裁剪</h1>
+    <ele-upload-image
+      :responseFn="handleResponse"
+      :size="100"
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76/"
+      crop
+      v-model="image3"
+    ></ele-upload-image>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
+  name: 'App',
+  data() {
+    return {
+      image1: '',
+      image2: '',
+      image3: '',
+      images: []
+    }
   },
-};
-</script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  methods: {
+    handleResponse(response, file) {
+      return file.url
+    }
+  }
 }
-</style>
+</script>
