@@ -2,13 +2,26 @@
   "name": "vue-element-upload-image",
   "version": "1.0.0",
   "private": false,
-  "main": "",
+  "main": "./dist/vue-element-upload-image.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "package": "vue-cli-service build --target lib ./src/package/index.js --name vue-element-upload-image --dest dist",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashuicoder/vue-element-upload-image"
+  },
+  "homepage": "https://github.com/ashuicoder/vue-element-upload-image/",
+  "keywords": [
+    "vue-element-upload-image",
+    "vue",
+    "vue image",
+    "element",
+    "element image",
+    "element-ui image"
+  ],
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.9",
